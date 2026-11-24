@@ -1659,11 +1659,11 @@ nav.tabs.mini button .badge{transform:scale(.85)}
 .mynight{background:var(--bg-secondary);border:1px solid var(--border-secondary);border-radius:var(--radius-xl);padding:16px;margin:4px 0 16px}
 .mynight .nhead{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px}
 .mynight .nhead b{font-size:var(--text-lg)}
-.mynight .cdpill{display:inline-flex;align-items:center;gap:6px;font-size:var(--text-sm);font-weight:600;color:var(--text-primary);background:var(--bg-primary);border:1px solid var(--border-secondary);border-radius:var(--radius-pill);padding:4px 10px;white-space:nowrap}
+.mynight .cdpill{display:inline-flex;align-items:center;gap:6px;font-size:var(--text-sm);font-weight:600;color:var(--green-700);background:var(--green-50);border:1px solid var(--green-300);border-radius:var(--radius-pill);padding:4px 10px;white-space:nowrap}
 .mynight .cdpill svg.i{width:14px;height:14px}
 .nround{display:flex;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--border-secondary)}
 .nround:first-of-type{border-top:0}
-.ncourt{flex:none;width:56px;height:56px;border-radius:var(--radius-lg);background:var(--grey-900);color:var(--bg-primary);display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.1}
+.ncourt{flex:none;width:56px;height:56px;border-radius:var(--radius-lg);background:var(--bg-brand-solid);color:var(--text-on-brand);display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.1}
 .ncourt small{font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--track-wide);text-transform:uppercase}
 .ncourt b{font-size:var(--text-xl)}
 .ncourt.off{background:var(--grey-100);color:var(--text-secondary)}
@@ -1687,21 +1687,21 @@ nav.tabs.mini button .badge{transform:scale(.85)}
 .cmwrap{background:var(--bg-secondary);border:1px solid var(--border-secondary);border-radius:var(--radius-xl);padding:12px}
 .cm{display:block;width:100%;height:auto}
 .cm .ct{fill:var(--bg-primary);stroke:var(--border-primary);stroke-width:1.5}
-.cm .ct.grp{fill:var(--grey-100)}
-.cm .ct.me{fill:var(--grey-900);stroke:var(--grey-900)}
+.cm .ct.grp{fill:var(--green-50);stroke:var(--green-300)}
+.cm .ct.me{fill:var(--bg-brand-solid);stroke:var(--bg-brand-solid)}
 .cm .net{stroke:var(--border-primary);stroke-width:1.5;stroke-dasharray:3 3}
-.cm .ct.me+.net{stroke:var(--grey-500)}
+.cm .ct.me+.net{stroke:var(--green-300)}
 .cm .cn{font:600 15px/1 var(--body);fill:var(--text-secondary);text-anchor:middle}
-.cm .cn.me{fill:var(--bg-primary)}
+.cm .cn.me{fill:var(--text-on-brand)}
 .cm .cy{font:700 10px/1 var(--body);fill:var(--bg-primary);text-anchor:middle;letter-spacing:.06em}
-.cm .club{fill:var(--grey-200)}
+.cm .club{fill:var(--grey-100)}
 .cm .clubt{font:600 11px/1 var(--body);fill:var(--text-secondary);text-anchor:middle}
 .cm .meet{fill:var(--danger)}
 .cmlegend{display:flex;flex-wrap:wrap;gap:12px;margin:10px 0 0;font-size:var(--text-xs);color:var(--text-secondary)}
 .cmlegend span{display:inline-flex;align-items:center;gap:6px}
 .cmlegend i{width:12px;height:12px;border-radius:3px;border:1px solid var(--border-primary);background:var(--bg-primary)}
-.cmlegend i.me{background:var(--grey-900);border-color:var(--grey-900)}
-.cmlegend i.grp{background:var(--grey-100)}
+.cmlegend i.me{background:var(--bg-brand-solid);border-color:var(--bg-brand-solid)}
+.cmlegend i.grp{background:var(--green-50);border-color:var(--green-300)}
 .cmlegend i.meet{border-radius:50%;background:var(--danger);border-color:var(--danger)}
 .cmsum{display:flex;gap:12px;align-items:center;margin:16px 0 4px}
 .cmsum .nt{display:flex;flex-direction:column;gap:2px;font-size:var(--text-sm);color:var(--text-secondary)}
@@ -3753,9 +3753,9 @@ function openCourtMap(g,ri=0){
     svg+=`<text class="clubt" x="${VW/2}" y="${VH-8}">Entrance and car park</text></svg>`;
     document.getElementById('shareBody').innerHTML=`<p style="margin:0 0 12px;color:var(--text-secondary)">${esc(venueOf(g).name)} · ${longDate(g)}</p>
       ${rs.length>1?`<div class="cmseg" role="group" aria-label="Round">${rs.map(x=>`<button type="button" data-cmr="${x.ri}" aria-pressed="${x.ri===ri}">Round ${x.ri+1} · ${x.t}</button>`).join('')}</div>`:''}
-      <div class="cmwrap">${svg}<div class="cmlegend"><span><i class="me"></i>Your court</span><span><i class="grp"></i>Your group</span><span><i class="meet"></i>Meet point</span></div></div>
+      <div class="cmwrap">${svg}<div class="cmlegend"><span><i class="me"></i>Your court</span>${r.courts>1?'<span><i class="grp"></i>Your group</span>':''}<span><i class="meet"></i>Meet point</span></div></div>
       <div class="cmsum"><div class="ncourt${r.court?'':' off'}"><small>${r.court?'Court':'Rest'}</small><b>${r.court||'–'}</b></div><div class="nt"><b>${r.court?'Court '+r.court:'Sitting out'}${rs.length>1?' · Round '+(r.ri+1):''} · ${r.t}</b>${r.court?`<span>${r.partner.length?'With '+esc(andList(r.partner))+'. ':''}${r.opp.length?'Against '+esc(andList(r.opp))+'.':''}</span>`:`<span>You're first on next round.</span>`}</div></div>
-      <p class="hint" style="margin:8px 0 16px">Meet at the clubhouse before your first round. Courts can change if the organiser moves players.</p>
+      <p class="hint" style="margin:8px 0 16px">${rs.length>1&&r.courts===1?'One court tonight, so you stay on it. Your partner changes each round. ':''}Meet at the clubhouse before your first round. Courts can change if the organiser moves players.</p>
       <button type="button" class="btn btn-primary btn-block" id="cmDone">Done</button>`;
     document.querySelectorAll('[data-cmr]').forEach(b=>b.onclick=()=>{ri=+b.dataset.cmr;draw();const nb=document.querySelector(`[data-cmr="${ri}"]`);if(nb)nb.focus();});
     document.getElementById('cmDone').onclick=closeShare;};
@@ -4213,8 +4213,14 @@ function planTeams(g){
   const rounds=RACKET[k]?2:1, out=[];
   for(let r=0;r<rounds;r++){
     const courts=[];
-    for(let c=0;c+per-1<players.length;c+=per){
-      const grp=players.slice(c,c+per), A=[], B=[];
+    /* Round 2 on racquet sports: when there is more than one court, the two middle
+       players of each court swap with the next court (winners up, losers down style),
+       so people change court as well as partner. Levels stay close because the swap
+       is between neighbouring courts. */
+    let order=players;
+    if(r>0&&players.length>=per*2){order=players.slice();for(let c=0;c+per*2-1<order.length;c+=per*2){[order[c+1],order[c+per+1]]=[order[c+per+1],order[c+1]];[order[c+2],order[c+per]]=[order[c+per],order[c+2]];}}
+    for(let c=0;c+per-1<order.length;c+=per){
+      const grp=order.slice(c,c+per), A=[], B=[];
       /* Snake draft (A,B,B,A,...). Taking [best, worst] then the next few best
          balances a court of four but stacks a team: it gave 19 v 11 at five-a-side
          and 34 v 17 at AFL numbers. Round 2 shifts the pairing so partners change. */
