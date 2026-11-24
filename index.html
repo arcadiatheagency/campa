@@ -1687,8 +1687,8 @@ nav.tabs.mini button .badge{transform:scale(.85)}
 .cmwrap{background:var(--bg-secondary);border:1px solid var(--border-secondary);border-radius:var(--radius-xl);padding:12px}
 .cm{display:block;width:100%;height:auto}
 .cm .ct{fill:var(--bg-primary);stroke:var(--border-primary);stroke-width:1.5}
-.cm .ct.grp{fill:var(--green-50);stroke:var(--green-300)}
-.cm .ct.me{fill:var(--bg-brand-solid);stroke:var(--bg-brand-solid)}
+.cm .ct.grp{fill:var(--bg-primary);stroke:var(--green-500);stroke-width:2}
+.cm .ct.me{fill:var(--bg-brand-solid);stroke:var(--green-500);stroke-width:2}
 .cm .net{stroke:var(--border-primary);stroke-width:1.5;stroke-dasharray:3 3}
 .cm .ct.me+.net{stroke:var(--green-300)}
 .cm .cn{font:600 15px/1 var(--body);fill:var(--text-secondary);text-anchor:middle}
@@ -1700,8 +1700,8 @@ nav.tabs.mini button .badge{transform:scale(.85)}
 .cmlegend{display:flex;flex-wrap:wrap;gap:12px;margin:10px 0 0;font-size:var(--text-xs);color:var(--text-secondary)}
 .cmlegend span{display:inline-flex;align-items:center;gap:6px}
 .cmlegend i{width:12px;height:12px;border-radius:3px;border:1px solid var(--border-primary);background:var(--bg-primary)}
-.cmlegend i.me{background:var(--bg-brand-solid);border-color:var(--bg-brand-solid)}
-.cmlegend i.grp{background:var(--green-50);border-color:var(--green-300)}
+.cmlegend i.me{background:var(--bg-brand-solid);border:2px solid var(--green-500)}
+.cmlegend i.grp{background:var(--bg-primary);border:2px solid var(--green-500)}
 .cmlegend i.meet{border-radius:50%;background:var(--danger);border-color:var(--danger)}
 .cmsum{display:flex;gap:12px;align-items:center;margin:16px 0 4px}
 .cmsum .nt{display:flex;flex-direction:column;gap:2px;font-size:var(--text-sm);color:var(--text-secondary)}
@@ -3753,7 +3753,7 @@ function openCourtMap(g,ri=0){
     svg+=`<text class="clubt" x="${VW/2}" y="${VH-8}">Entrance and car park</text></svg>`;
     document.getElementById('shareBody').innerHTML=`<p style="margin:0 0 12px;color:var(--text-secondary)">${esc(venueOf(g).name)} · ${longDate(g)}</p>
       ${rs.length>1?`<div class="cmseg" role="group" aria-label="Round">${rs.map(x=>`<button type="button" data-cmr="${x.ri}" aria-pressed="${x.ri===ri}">Round ${x.ri+1} · ${x.t}</button>`).join('')}</div>`:''}
-      <div class="cmwrap">${svg}<div class="cmlegend"><span><i class="me"></i>Your court</span>${r.courts>1?'<span><i class="grp"></i>Your group</span>':''}<span><i class="meet"></i>Meet point</span></div></div>
+      <div class="cmwrap">${svg}<div class="cmlegend"><span><i class="me"></i>Your court</span>${r.courts>1?'<span><i class="grp"></i>Your game</span>':''}<span><i class="meet"></i>Meet point</span></div></div>
       <div class="cmsum"><div class="ncourt${r.court?'':' off'}"><small>${r.court?'Court':'Rest'}</small><b>${r.court||'–'}</b></div><div class="nt"><b>${r.court?'Court '+r.court:'Sitting out'}${rs.length>1?' · Round '+(r.ri+1):''} · ${r.t}</b>${r.court?`<span>${r.partner.length?'With '+esc(andList(r.partner))+'. ':''}${r.opp.length?'Against '+esc(andList(r.opp))+'.':''}</span>`:`<span>You're first on next round.</span>`}</div></div>
       <p class="hint" style="margin:8px 0 16px">${rs.length>1&&r.courts===1?'One court tonight, so you stay on it. Your partner changes each round. ':''}Meet at the clubhouse before your first round. Courts can change if the organiser moves players.</p>
       <button type="button" class="btn btn-primary btn-block" id="cmDone">Done</button>`;
