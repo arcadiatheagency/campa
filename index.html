@@ -752,6 +752,7 @@ img.face{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;borde
 :root .toast.show{display:flex;pointer-events:none;animation:toastIn .25s cubic-bezier(.2,.8,.2,1)}
 @keyframes toastIn{from{transform:translateY(-16px);opacity:0}to{transform:none;opacity:1}}
 @media (prefers-reduced-motion:reduce){:root .toast.show{animation:none}}
+:root .toast.warn{background:var(--apricot-50);border-color:var(--apricot-300)}:root .toast.warn .ticon{background:var(--apricot-100);color:var(--apricot-700);box-shadow:0 0 0 4px rgba(253,228,206,.6)}
 .toast .ticon{width:32px;height:32px;border-radius:50%;background:var(--green-100);color:var(--fg-brand);display:flex;align-items:center;justify-content:center;flex:0 0 auto;box-shadow:0 0 0 4px rgba(192,247,234,.5)}
 .skel{background:var(--bg-secondary);border-radius:var(--radius-3xl);padding:8px 8px 16px;margin:16px 0 4px}
 .skel i{display:block;border-radius:var(--radius-xl);background:linear-gradient(90deg,var(--grey-100),var(--grey-50),var(--grey-100));background-size:200% 100%;animation:shimmer 1.2s linear infinite}
@@ -1654,6 +1655,62 @@ nav.tabs.mini button .badge{transform:scale(.85)}
 .orggroup:empty{display:none}
 .dbanner .btags{position:absolute;top:12px;right:12px;display:flex;gap:8px;z-index:2}.dbanner .btags .tag{position:static}.dbanner .wxtag{background:var(--bg-primary);display:inline-flex;align-items:center;gap:4px}.wxtag .i{width:14px;height:14px;margin:0}.wxtag.wet{color:var(--alert)}
 .dbanner button.wxtag{border:0;cursor:pointer;font:inherit;font-weight:600;font-size:var(--text-xs)}.wxnow{display:flex;align-items:center;gap:12px;margin:0 0 16px}.wxnow .i{width:40px;height:40px}.wxnow b{font-family:var(--display);font-size:var(--display-xs)}.wxnow span{display:flex;flex-direction:column;font-weight:600}.wxnow small{font-weight:400;color:var(--text-secondary);font-size:var(--text-sm)}.wxhours{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 16px}.wxhours>div{display:flex;flex-direction:column;align-items:center;gap:4px;background:var(--bg-secondary);border:1px solid var(--border-secondary);border-radius:var(--radius-xl);padding:12px 8px}.wxhours small{font-size:var(--text-xs);color:var(--text-secondary)}.wxhours .wxm{display:flex;align-items:center;gap:4px;font-size:var(--text-xs);color:var(--text-secondary);white-space:nowrap}.wxhours .wxm svg.i{width:12px;height:12px;stroke-width:2.25;flex:none}.wxhours .wxm+.wxm{margin-top:-2px}
+/* Your night: court, court-mates, rounds and a countdown for a game you're in. */
+.mynight{background:var(--bg-secondary);border:1px solid var(--border-secondary);border-radius:var(--radius-xl);padding:16px;margin:4px 0 16px}
+.mynight .nhead{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px}
+.mynight .nhead b{font-size:var(--text-lg)}
+.mynight .cdpill{display:inline-flex;align-items:center;gap:6px;font-size:var(--text-sm);font-weight:600;color:var(--text-primary);background:var(--bg-primary);border:1px solid var(--border-secondary);border-radius:var(--radius-pill);padding:4px 10px;white-space:nowrap}
+.mynight .cdpill svg.i{width:14px;height:14px}
+.nround{display:flex;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--border-secondary)}
+.nround:first-of-type{border-top:0}
+.ncourt{flex:none;width:56px;height:56px;border-radius:var(--radius-lg);background:var(--grey-900);color:var(--bg-primary);display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.1}
+.ncourt small{font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--track-wide);text-transform:uppercase}
+.ncourt b{font-size:var(--text-xl)}
+.ncourt.off{background:var(--grey-100);color:var(--text-secondary)}
+.nround .nt{display:flex;flex-direction:column;gap:2px;font-size:var(--text-sm);color:var(--text-secondary);min-width:0}
+.nround .nt b{color:var(--text-primary);font-size:var(--text-md)}
+.mynight .nmapbtn{margin-top:4px}
+.mynight .nempty{font-size:var(--text-sm);color:var(--text-secondary);margin:8px 0 4px}
+.nnotes{margin-top:16px}
+.nnotes .nlab{font-size:var(--text-xs);font-weight:600;letter-spacing:var(--track-wide);text-transform:uppercase;color:var(--text-secondary);margin:0 0 4px}
+.nnote{display:flex;align-items:center;gap:12px;width:100%;min-height:48px;padding:10px 12px;margin-top:8px;background:var(--bg-primary);border:1px solid var(--border-secondary);border-radius:var(--radius-lg);font:inherit;font-size:var(--text-sm);font-weight:600;text-align:left;color:var(--text-primary);cursor:pointer}
+.nnote svg.i{width:18px;height:18px;flex:none;color:var(--text-secondary)}
+.nnote span{flex:1}
+.nnote .nsent{flex:none;display:inline-flex;align-items:center;gap:4px;font-size:var(--text-xs);color:var(--text-secondary);font-weight:600}
+.nnote .nsent .tick{width:14px;height:14px}
+.nnote[aria-disabled="true"]{cursor:default;color:var(--text-secondary)}
+.nnote.out span{color:var(--danger)}
+/* Court map */
+.cmseg{display:flex;background:var(--grey-100);border-radius:var(--radius-pill);padding:4px;gap:4px;margin:0 0 12px}
+.cmseg button{flex:1;border:0;background:transparent;border-radius:var(--radius-pill);min-height:36px;padding:6px 8px;font:inherit;font-weight:600;font-size:var(--text-sm);color:var(--text-secondary);cursor:pointer}
+.cmseg button[aria-pressed="true"]{background:var(--bg-primary);color:var(--text-primary);outline:1px solid var(--border-secondary)}
+.cmwrap{background:var(--bg-secondary);border:1px solid var(--border-secondary);border-radius:var(--radius-xl);padding:12px}
+.cm{display:block;width:100%;height:auto}
+.cm .ct{fill:var(--bg-primary);stroke:var(--border-primary);stroke-width:1.5}
+.cm .ct.grp{fill:var(--grey-100)}
+.cm .ct.me{fill:var(--grey-900);stroke:var(--grey-900)}
+.cm .net{stroke:var(--border-primary);stroke-width:1.5;stroke-dasharray:3 3}
+.cm .ct.me+.net{stroke:var(--grey-500)}
+.cm .cn{font:600 15px/1 var(--body);fill:var(--text-secondary);text-anchor:middle}
+.cm .cn.me{fill:var(--bg-primary)}
+.cm .cy{font:700 10px/1 var(--body);fill:var(--bg-primary);text-anchor:middle;letter-spacing:.06em}
+.cm .club{fill:var(--grey-200)}
+.cm .clubt{font:600 11px/1 var(--body);fill:var(--text-secondary);text-anchor:middle}
+.cm .meet{fill:var(--danger)}
+.cmlegend{display:flex;flex-wrap:wrap;gap:12px;margin:10px 0 0;font-size:var(--text-xs);color:var(--text-secondary)}
+.cmlegend span{display:inline-flex;align-items:center;gap:6px}
+.cmlegend i{width:12px;height:12px;border-radius:3px;border:1px solid var(--border-primary);background:var(--bg-primary)}
+.cmlegend i.me{background:var(--grey-900);border-color:var(--grey-900)}
+.cmlegend i.grp{background:var(--grey-100)}
+.cmlegend i.meet{border-radius:50%;background:var(--danger);border-color:var(--danger)}
+.cmsum{display:flex;gap:12px;align-items:center;margin:16px 0 4px}
+.cmsum .nt{display:flex;flex-direction:column;gap:2px;font-size:var(--text-sm);color:var(--text-secondary)}
+.cmsum .nt b{color:var(--text-primary);font-size:var(--text-md)}
+/* PayID box in the pay sheet */
+.payidbox .bkrow{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.payidbox .bkrow b{flex:1;text-align:right;word-break:break-all}
+.payidbox .copybtn{flex:none;border:1px solid var(--border-primary);background:var(--bg-primary);border-radius:var(--radius-pill);min-height:32px;padding:4px 12px;font:inherit;font-size:var(--text-xs);font-weight:600;color:var(--text-primary);cursor:pointer}
+
 .pilot #sportChips,.pilot #gSports,.pilot [data-pane="h-org"],.pilot [data-pane="h-offers"],.pilot [data-pane="g-disc"],.pilot #mapBtn,.pilot [data-view="wallet"],.pilot [data-view="oneinv"],.pilot [data-view="follows"],.pilot .pilot-hide,
 /* The pilot is tennis only, so the sport filter on Calendar is hidden with the other sport pickers. */
 .pilot #calSports{display:none!important}
@@ -2412,8 +2469,6 @@ h3{font-family:var(--display);font-size:var(--text-md);font-weight:700;line-heig
   <!-- SETTINGS -->
   <section class="screen hidden" id="tab-settings" aria-label="Settings">
     <h1 class="page">Settings</h1>
-    <div class="seg2" role="group" aria-label="Prototype view" id="modeSeg" style="margin:0 0 8px"><button type="button" data-mode="pilot" aria-pressed="false">Pilot view</button><button type="button" data-mode="full" aria-pressed="false">Full vision</button></div>
-    <p class="hint" style="margin:0 0 16px" id="modeHint"></p>
     <div class="list hostentry" id="setHosting" style="margin-bottom:12px"></div>
     <div class="list" style="margin-bottom:16px"><button class="row" data-view="profile"><div class="avatar">JS</div><div class="main"><b id="setName">Joseph S.</b><span id="setSub">Gold Coast · Tennis 3.5, Padel 3.0</span></div><svg class="i" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></button></div>
     <div class="set-group">
@@ -2815,7 +2870,7 @@ const LEVEL={Sam:3,Jo:2,Priya:4,Tom:3,Alex:2,Mia:4,Kai:3,Lou:2,Ben:2,Ava:2,Zoe:3
 /* Pilot view: tennis only, private groups, no card payments. Off by default; turn it on with the switch in Settings (or #pilot in the address). */
 /* The switch in Settings writes #pilot or #full, so the hash wins. A link opened with ?pilot
    used to stay in Pilot view whatever the switch said: Full vision looked dead. */
-const PILOT=/pilot/.test(location.hash)||(!/full/.test(location.hash)&&/[?&]pilot\b/.test(location.search));
+const PILOT=false; // Pilot view removed 24 Nov 2026 at Joseph's request: the prototype always shows the full version.
 const games=[
   /* ---- Finished games ----
      week:-1 and -2 put these behind the prototype's frozen clock (Mon 9 Nov, 9am).
@@ -3156,7 +3211,8 @@ const EIX={
   link:'<svg class="i" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.8 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>',
   file:'<svg class="i" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>'};
 const EI={search:'<svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>',cal:'<svg class="i" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>',users:'<svg class="i" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>'};
-function toast(m){const t=document.getElementById('toast');t.innerHTML='<span class="ticon"><svg class="i sm" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><span></span>';t.lastChild.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),2600);}
+/* toast(message, kind): kind 'warn' is the apricot version with a cross, for negative steps such as dropping out. */
+function toast(m,kind){const t=document.getElementById('toast');t.classList.toggle('warn',kind==='warn');t.innerHTML='<span class="ticon"><svg class="i sm" viewBox="0 0 24 24">'+(kind==='warn'?'<path d="M18 6 6 18M6 6l12 12"/>':'<path d="M20 6 9 17l-5-5"/>')+'</svg></span><span></span>';t.lastChild.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),2600);}
 function spotsText(g){const left=g.cap-g.in.length-(g.offered?1:0);return g.cancelled?'Cancelled':left>0?`${left} spot${left>1?'s':''} left`:`Full · ${g.wait.length} waiting`;}
 const TICK='<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
 function myTag(g){
@@ -3628,6 +3684,86 @@ function person(name,status,host){
   const me=name==='You';
   return `<${me?'div':'button type="button"'} class="row${me?'':' prow'}" ${me?'style="cursor:default"':`data-contact="${esc(name)}" aria-label="${esc(name)}, view player"`}><div class="avatar sm">${ini(name)}${face(name)}</div><div class="main"><b>${name}</b><span class="plvl"><span>${lvlName(LEVEL[name])}</span>${badges}</span></div>${tag}</${me?'div':'button'}>`;
 }
+
+/* ---- Your night ----
+   For a game you're in: a countdown, your court and court-mates each round, a court map,
+   and one-tap notes to the organiser. Courts come from the same level-balanced plan the
+   host sees (including any swaps they made), so players and host always agree. */
+const NIGHT_LOAD=Date.now();
+const hoursLeft=g=>hoursUntil(g)-(Date.now()-NIGHT_LOAD)/36e5;
+function cdText(h){if(h<=0)return 'On now';const m=Math.round(h*60);if(m<60)return m+' min';if(h<24)return Math.floor(m/60)+'h '+String(m%60).padStart(2,'0')+'m';const d=Math.floor(h/24),hh=Math.floor(h%24);return d+(d>1?' days':' day')+(hh?' '+hh+' hr':'');}
+function addMins(t,m){const x=/^(\d+):(\d+)(am|pm)$/.exec(t);if(!x)return t;let mm=((+x[1]%12)+(x[3]==='pm'?12:0))*60+(+x[2])+m;mm=((mm%1440)+1440)%1440;const h=Math.floor(mm/60),mi=mm%60;return `${h%12||12}:${String(mi).padStart(2,'0')}${h<12?'am':'pm'}`;}
+function nightPlan(g){const roster=[...g.in].sort().join('|');if(teamPlan&&teamPlan.gid===g.id&&teamPlan.roster===roster)return teamPlan;return planTeams(g);}
+function myRounds(g){
+  if(!RACKET[g.sport]||!g.in.includes('You')||g.in.length<(PER_SIDE[g.sport]||4))return null;
+  const pl=nightPlan(g),step=Math.round((g.dur||90)/pl.rounds.length);
+  return pl.rounds.map((courts,ri)=>{const t=addMins(g.time,ri*step);
+    for(let ci=0;ci<courts.length;ci++){const c=courts[ci],a=c.A.includes('You'),b=c.B.includes('You');
+      if(a||b)return {ri,t,court:ci+1,partner:(a?c.A:c.B).filter(x=>x!=='You'),opp:a?c.B:c.A,courts:courts.length};}
+    return {ri,t,court:null,partner:[],opp:[],courts:courts.length};});
+}
+const andList=a=>a.length<2?(a[0]||''):a.slice(0,-1).join(', ')+' and '+a[a.length-1];
+const GEAR={tennis:'racquet',badminton:'racquet',padel:'padel racket',pickleball:'paddle'};
+const NOTE_IC={late:'<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',borrow:'<circle cx="12" cy="12" r="10"/><path d="M5.5 5.5a10 10 0 0 1 0 13M18.5 5.5a10 10 0 0 0 0 13"/>',spare:'<path d="M12 5v14M5 12h14"/>',out:'<path d="M18 6 6 18M6 6l12 12"/>'};
+function nightNotes(g){const gear=GEAR[g.sport];const sent=g.notes||{};
+  const row=(k,label)=>{const done=sent[k];return `<button type="button" class="nnote${k==='out'?' out':''}" data-note="${k}"${done?' aria-disabled="true"':''}><svg class="i" viewBox="0 0 24 24" aria-hidden="true">${NOTE_IC[k]}</svg><span>${label}</span>${done?`<span class="nsent">${TICK}Sent</span>`:''}</button>`;};
+  return `<div class="nnotes"><p class="nlab">Let the organiser know</p>
+    ${row('late',"I'm running late")}${gear?row('borrow',`I need to borrow a ${gear}`)+row('spare',`I can bring a spare ${gear}`):''}${row('out',"I can't make it")}</div>`;}
+function nightHTML(g){
+  if(g.mine!=='in'||g.cancelled||isSched(g))return '';
+  const h=hoursLeft(g);if(h<-((g.dur||90)/60))return '';
+  const rs=myRounds(g);const unit=g.sport==='golf'?'Group':'Court';
+  let body='';
+  if(rs){
+    body=rs.map(r=>r.court?`<div class="nround"><div class="ncourt"><small>${unit}</small><b>${r.court}</b></div><div class="nt"><b>${rs.length>1?'Round '+(r.ri+1)+' · ':''}${r.t}</b>${r.partner.length?`<span>With ${esc(andList(r.partner))}</span>`:''}${r.opp.length?`<span>Against ${esc(andList(r.opp))}</span>`:''}</div></div>`
+      :`<div class="nround"><div class="ncourt off"><small>Rest</small><b>–</b></div><div class="nt"><b>${rs.length>1?'Round '+(r.ri+1)+' · ':''}${r.t}</b><span>Sitting out this round. You're first on next round.</span></div></div>`).join('')
+      +(rs.length>1?'<p class="nempty">New court-mates every round.</p>':'')
+      +`<button type="button" class="btn btn-secondary btn-block nmapbtn" id="nightMap"><svg class="i sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Show me on the court map</button>`;
+  } else if(RACKET[g.sport]){
+    body=`<p class="nempty">Your court and court-mates appear here once ${PER_SIDE[g.sport]||4} players are in.</p>`;
+  }
+  return `<section class="mynight" aria-label="Your game">
+    <div class="nhead"><b>Your game</b><span class="cdpill"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>${h>0?'Starts in ':''}<span data-cd="${g.id}">${cdText(h)}</span></span></span></div>
+    ${body}
+    ${isHost(g)?'':nightNotes(g)}
+  </section>`;
+}
+function sendNote(g,k){
+  g.notes=g.notes||{};if(g.notes[k])return;
+  if(k==='out'){reply('out');return;}
+  const gear=GEAR[g.sport]||'racquet';
+  const text={late:"Running about 10 minutes late, sorry! Start without me.",borrow:`Could anyone lend me a ${gear} tonight?`,spare:`I can bring a spare ${gear} if anyone needs one.`}[k];
+  const c=ensureChat('game-'+g.id);c.msgs.push({who:'You',text});g.notes[k]=true;
+  const org=(groups.find(x=>x.name===g.group)||{}).organiser;
+  haptic('success');toast(org&&org!=='You'?`Sent. ${org} and the group can see it in the chat.`:'Posted to the game chat.');
+  renderDetail();
+}
+function openCourtMap(g,ri=0){
+  const rs=myRounds(g);if(!rs)return;shareOpener=document.activeElement;
+  const v=VENUES.find(x=>x.area===g.venue)||{};const N=Math.max(v.courts||4,...rs.map(r=>r.courts));
+  document.getElementById('shareTitle').textContent='Court map';
+  const W=120,H=64,G=16,P=16,top=48,cols=2,rows=Math.ceil(N/cols),VW=P*2+cols*W+(cols-1)*G,VH=top+rows*(H+G)+P-G+28;
+  const draw=()=>{const r=rs[ri];
+    let svg=`<svg class="cm" viewBox="0 0 ${VW} ${VH}" role="img" aria-label="${esc(venueOf(g).name)}: ${N} courts. ${r.court?'Your court, '+r.court+', is highlighted.':'You are sitting out this round.'}">`;
+    svg+=`<rect class="club" x="${P}" y="12" width="${VW-P*2}" height="24" rx="6"/><text class="clubt" x="${VW/2}" y="28">Clubhouse</text><circle class="meet" cx="${VW-P-14}" cy="24" r="6"/>`;
+    for(let i=0;i<N;i++){const cx=P+(i%cols)*(W+G),cy=top+Math.floor(i/cols)*(H+G),n=i+1,me=r.court===n,grp=n<=r.courts;
+      svg+=`<rect class="ct${me?' me':grp?' grp':''}" x="${cx}" y="${cy}" width="${W}" height="${H}" rx="8"/><line class="net" x1="${cx+W/2}" y1="${cy+6}" x2="${cx+W/2}" y2="${cy+H-6}"/>`;
+      svg+=`<text class="cn${me?' me':''}" x="${cx+W/4}" y="${cy+H/2+5}">${n}</text>`;
+}
+    svg+=`<text class="clubt" x="${VW/2}" y="${VH-8}">Entrance and car park</text></svg>`;
+    document.getElementById('shareBody').innerHTML=`<p style="margin:0 0 12px;color:var(--text-secondary)">${esc(venueOf(g).name)} · ${longDate(g)}</p>
+      ${rs.length>1?`<div class="cmseg" role="group" aria-label="Round">${rs.map(x=>`<button type="button" data-cmr="${x.ri}" aria-pressed="${x.ri===ri}">Round ${x.ri+1} · ${x.t}</button>`).join('')}</div>`:''}
+      <div class="cmwrap">${svg}<div class="cmlegend"><span><i class="me"></i>Your court</span><span><i class="grp"></i>Your group</span><span><i class="meet"></i>Meet point</span></div></div>
+      <div class="cmsum"><div class="ncourt${r.court?'':' off'}"><small>${r.court?'Court':'Rest'}</small><b>${r.court||'–'}</b></div><div class="nt"><b>${r.court?'Court '+r.court:'Sitting out'}${rs.length>1?' · Round '+(r.ri+1):''} · ${r.t}</b>${r.court?`<span>${r.partner.length?'With '+esc(andList(r.partner))+'. ':''}${r.opp.length?'Against '+esc(andList(r.opp))+'.':''}</span>`:`<span>You're first on next round.</span>`}</div></div>
+      <p class="hint" style="margin:8px 0 16px">Meet at the clubhouse before your first round. Courts can change if the organiser moves players.</p>
+      <button type="button" class="btn btn-primary btn-block" id="cmDone">Done</button>`;
+    document.querySelectorAll('[data-cmr]').forEach(b=>b.onclick=()=>{ri=+b.dataset.cmr;draw();const nb=document.querySelector(`[data-cmr="${ri}"]`);if(nb)nb.focus();});
+    document.getElementById('cmDone').onclick=closeShare;};
+  draw();
+  document.getElementById('shareBg').classList.remove('hidden');document.getElementById('sharePop').classList.remove('hidden');
+  const sp=document.getElementById('sharePop');if(sp.focus)sp.focus({preventScroll:true});
+}
+setInterval(()=>document.querySelectorAll('[data-cd]').forEach(el=>{const g=games.find(x=>x.id===+el.dataset.cd);if(g)el.textContent=cdText(hoursLeft(g));}),30000);
 function renderDetail(){
   const g=current; if(!g) return;
   document.querySelector('#screen-game .detail-head .title').textContent=g.title;
@@ -3640,11 +3776,12 @@ function renderDetail(){
     <h1 class="dtitle">${g.title}</h1>
     ${g.cancelled?`<div class="urgent-card" style="margin:8px 0 12px"><b>Cancelled${g.cancelReason?': '+esc(g.cancelReason):''}</b><br><span style="font-size:var(--text-sm)">Everyone who replied has been told${payOf(g).mode==='fixed'?' and card payments refunded':''}.</span></div>`:''}
     ${!notifOn&&!g.cancelled&&['in','wait','offered'].includes(g.mine)?`<div class="alertnudge"><span class="an-ic"><svg class="i" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></span><span class="an-t"><b>${g.mine==='wait'?'Know the moment a spot opens':'Hear if this game changes'}</b><small>Alerts are off. We only send urgent ones about games you're in.</small><button class="btn btn-secondary btn-sm" id="alertOn">Turn on alerts</button></span></div>`:''}
+    ${nightHTML(g)}
     ${g.desc?`<p class="gdesc">${esc(g.desc)}</p>`:''}
     <div class="gprog">
     <div class="bar gbar" style="background:var(--bg-tertiary)"><div style="width:${pct}%"></div></div>
     <div class="bar-label"><span>${g.in.length} of ${g.cap} in</span><span>${spotsText(g)}</span></div>
-    ${g.cancelled||g.in.length<g.cap?'':`<p class="rule">Full. ${payOf(g).mode==='fixed'?"Join the waitlist and you won't be charged unless you get a spot. If someone drops out you're added and charged automatically, and we tell you straight away.":`Join the waitlist and you'll be offered the next spot that opens. It's held for you for 2 hours${payOf(g).mode!=='free'?', and you only pay if you take it':''}.`}</p>`}
+    ${g.cancelled||g.in.length<g.cap?'':`<p class="rule">Full. ${payOf(g).mode==='fixed'?"Join the waitlist and you won't be charged unless you get a spot. If someone drops out you're added and charged automatically, and we tell you straight away.":`Join the waitlist. If someone drops out, the first person on the list gets the spot automatically and we tell you straight away${payOf(g).mode!=='free'?". You only pay once you're in":''}.`}</p>`}
     </div>
     <div class="meta-row" data-field="time"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><b>${longDate(g)} · ${g.time}</b>${g.dur?' · '+(g.dur/60)+' hr':' · 1.5 hr'}${g.series?' · Weekly':''}</div>
     <button type="button" class="meta-row venuebtn" data-field="venue" data-dir="${g.id}" aria-label="${esc(venueOf(g).name)}, ${esc(venueOf(g).street)}. Get directions"><svg class="i" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span><span class="vline">${esc(venueOf(g).name)}</span><small class="vstreet">${esc(venueOf(g).street)}</small>${g.venueNote?`<small class="vnote">${esc(g.venueNote)}</small>`:''}${g.venueOpen?'':'<small class="vdir">Get directions</small>'}</span></button>
@@ -3674,6 +3811,8 @@ function renderDetail(){
   const tdd=document.getElementById('teamsDD'); if(tdd) tdd.addEventListener('toggle',()=>{if(tdd.open)buildTeams();});
   document.querySelectorAll('[data-ot]').forEach(b=>b.addEventListener('click',()=>orgTool(g,b.dataset.ot)));
   const pi=document.getElementById('payInfo'); if(pi) pi.addEventListener('click',()=>openPay(g,'info'));
+  const nm=document.getElementById('nightMap'); if(nm) nm.addEventListener('click',()=>openCourtMap(g));
+  document.querySelectorAll('[data-note]').forEach(b=>b.addEventListener('click',()=>{if(b.getAttribute('aria-disabled')==='true')return;sendNote(g,b.dataset.note);}));
   const sn=document.getElementById('sendNow'); if(sn) sn.addEventListener('click',()=>orgTool(g,'send'));
   document.querySelectorAll('[data-markpaid]').forEach(b=>b.addEventListener('click',()=>{const p=payOf(g),n=b.dataset.markpaid;p.paid=[...(p.paid||[]),n];p.pending=(p.pending||[]).filter(x=>x!==n);toast(`${n}'s payment confirmed. They're in.`);renderDetail();}));
   const dp=document.getElementById('declinePay'); if(dp) dp.addEventListener('click',()=>{const p=payOf(g);const n=g.in.find(x=>(p.pending||[]).includes(x));if(!n)return;confirmBox(`Release ${n}'s spot?`,`${n} said they transferred but nothing has arrived. They will be told, and the spot is offered to the next person waiting.`,'Release spot',()=>{g.in=g.in.filter(x=>x!==n);p.pending=p.pending.filter(x=>x!==n);offerNext(g);renderDetail();},true);});
@@ -3708,14 +3847,16 @@ function openStandby(g){shareOpener=document.activeElement;const amt=money(dueOf
   document.getElementById('sbNo').onclick=closeShare;
   document.getElementById('shareBg').classList.remove('hidden');document.getElementById('sharePop').classList.remove('hidden');}
 function offerNext(g){
-  // Waitlist promotion is a timed offer, never an automatic In. The first waiter gets 2 hours to accept (and pay, on paid games).
-  if(!g.wait.length||g.in.length>=g.cap||g.offered) return;
-  const n=g.wait.shift(); g.offered={who:n,expires:'2 hours'};
-  if(n==='You'&&g.autoJoin&&payOf(g).mode==='fixed'){ // standby with auto-join: in straight away, charged only now
-    const amt=dueOf(g),pp=payOf(g);g.offered=null;g.in.push('You');g.mine='in';pp.paid=(pp.paid||[]).concat('You');wallet.history.unshift({t:g.title,a:-amt,d:'Today'});
-    toast(`A spot opened. You're in, and ${money(amt)} was charged to ${wallet.card||'your card'}.`);return;}
-  if(n==='You'){g.mine='offered';toast('A spot opened up. You have 2 hours to take it.');}
-  else toast(`Spot freed. ${n} has 2 hours to take it before it passes on.`);
+  /* Decided by Joseph, 24 Nov 2026: when a spot opens, the first person on the waitlist gets it
+     automatically. No timed offer to accept. They're told straight away, and can drop out as usual. */
+  if(!g.wait.length||g.in.length>=g.cap) return;
+  const n=g.wait.shift(),pp=payOf(g),amt=dueOf(g);g.offered=null;g.in.push(n);
+  if(n==='You'){g.mine='in';
+    if(pp.mode==='fixed'&&g.autoJoin){pp.paid=(pp.paid||[]).concat('You');pp.how='card';wallet.history.unshift({t:g.title,a:-amt,d:'Today'});
+      toast(`A spot opened and you were first on the waitlist. You're in, and ${money(amt)} was charged to ${wallet.card||'your card'}.`);}
+    else toast(pp.mode!=='free'?`A spot opened and you were first on the waitlist. You're in. Pay ${money(amt)} to lock it in.`:"A spot opened and you were first on the waitlist. You're in.");
+    return;}
+  toast(`Spot freed. ${n} was first on the waitlist and is now in.`);
 }
 function removeMe(g){
   ['in','maybe','wait'].forEach(k=>{const i=g[k].indexOf('You');if(i>-1)g[k].splice(i,1);});
@@ -3731,16 +3872,16 @@ function leaveGame(g,prev){
        It used to hand out the game price as credit for a spot that cost no money. */
     if(p.how==='pass'){const ps=wallet.passes[g.group],c0=dropCase(g);p.how=null;leaveGame.to=null;
       if(c0==='full'){if(ps)ps.left=Math.min(ps.of,ps.left+1);wallet.history.unshift({t:'Pass returned: '+g.title,a:0,d:'Today'});
-        setTimeout(()=>toast(`Pass returned. ${ps?ps.left:1} of ${ps?ps.of:1} games left.`),50);}
-      else if(c0==='fill'){g.refundIfFilled=(g.refundIfFilled||[]).concat('You');setTimeout(()=>toast('You get your pass back only if someone takes your spot.'),50);}
-      else setTimeout(()=>toast("You've dropped out. The pass isn't returned."),50);
+        setTimeout(()=>toast(`Pass returned. ${ps?ps.left:1} of ${ps?ps.of:1} games left.`,'warn'),50);}
+      else if(c0==='fill'){g.refundIfFilled=(g.refundIfFilled||[]).concat('You');setTimeout(()=>toast('You get your pass back only if someone takes your spot.','warn'),50);}
+      else setTimeout(()=>toast("You've dropped out. The pass isn't returned.",'warn'),50);
     } else {
     p.how=null;
     const c=dropCase(g),r=refOf(g),to=leaveGame.to||'credit',back=to==='credit'?amt:Math.max(0,Math.round((amt-cardFee(amt))*100)/100);leaveGame.to=null;
     if(c==='full'){if(to==='credit'){wallet.credits[g.group]=creditFor(g)+amt;wallet.history.unshift({t:'Credit: '+g.title,a:amt,d:'Today'});}else wallet.history.unshift({t:'Refund to card: '+g.title,a:back,d:'Today'});
-      setTimeout(()=>toast(to==='credit'?`${money(amt)} credit with ${g.group}, ready for your next game.`:`${money(back)} refunded to ${wallet.card||'your card'}. It can take 3 to 5 business days.`),50);}
-    else if(c==='fill'){g.refundIfFilled=(g.refundIfFilled||[]).concat('You');setTimeout(()=>toast(`You get ${money(amt)} back only if someone takes your spot.`),50);}
-    else setTimeout(()=>toast(`You've dropped out. The ${money(amt)} isn't refunded.`),50);
+      setTimeout(()=>toast(to==='credit'?`${money(amt)} credit with ${g.group}, ready for your next game.`:`${money(back)} refunded to ${wallet.card||'your card'}. It can take 3 to 5 business days.`,'warn'),50);}
+    else if(c==='fill'){g.refundIfFilled=(g.refundIfFilled||[]).concat('You');setTimeout(()=>toast(`You get ${money(amt)} back only if someone takes your spot.`,'warn'),50);}
+    else setTimeout(()=>toast(`You've dropped out. The ${money(amt)} isn't refunded.`,'warn'),50);
     }
   } else if(p.paid||p.pending){p.paid=(p.paid||[]).filter(n=>n!=='You');p.pending=(p.pending||[]).filter(n=>n!=='You');}
   removeMe(g); g.mine='out';
@@ -3766,15 +3907,16 @@ function drawRsvp(g){
   let info,act,sub='';
   const price=`<b>${amt}</b><span>${g.in.length} of ${g.cap} in</span>`;
   if(g.mine==='in'){
-    const pend=iPending(g);
-    info=`<div class="rrow"><span class="tag ${pend?'pend':'in'}">${pend?'<span class="dot"></span>Payment pending':TICK+'Going'}</span><span>${DAYS[g.day%7]} ${g.time}</span></div>`;
-    act=btn('out',host?"Can't play":"Can't make it",'btn-outline');
+    const pend=iPending(g),due=paid&&!host&&!iPaid(g)&&!pend;
+    info=`<div class="rrow"><span class="tag ${pend||due?'pend':'in'}">${pend?'<span class="dot"></span>Payment pending':due?'<span class="dot"></span>Payment due':TICK+'Going'}</span><span>${DAYS[g.day%7]} ${g.time}</span></div>`;
+    act=due?btn('pay','Pay '+amt):btn('out',host?"Can't play":"Can't make it",'btn-outline');
+    if(due)sub=link('out',"Can't make it");
   } else if(g.mine==='offered'){
     info=`<b>Spot held</b><span>${g.offered?g.offered.expires:'2 hours'} left to take it</span>`;
     act=btn('in',paid&&!iPaid(g)?'Pay &amp; take spot':'Take the spot');
     sub=link('out','Pass it on');
   } else if(g.mine==='wait'){
-    info=`<div class="rrow"><span class="tag wait">Waitlist #${g.wait.indexOf('You')+1}</span><span>${payOf(g).mode==='fixed'?`Not charged yet. If a spot opens you're added and ${money(dueOf(g))} is charged`:`We'll hold a spot for you when it's your turn`}</span></div>`;
+    info=`<div class="rrow"><span class="tag wait">Waitlist #${g.wait.indexOf('You')+1}</span><span>${payOf(g).mode==='fixed'?`Not charged yet. If a spot opens you're added and ${money(dueOf(g))} is charged`:`If a spot opens and you're next, you're in automatically`}</span></div>`;
     act=btn('leavewait','Leave waitlist','btn-outline');
   } else if(left<=0){
     info=`<b>${amt}</b><span>Full · ${g.wait.length} waiting</span>`;
@@ -3918,7 +4060,7 @@ function alertCarousel(){
     ['cal','Tonight is off, the courts are flooded',
       `${where}. Cancelled 40 minutes ago, so you do not drive out for nothing.`,'now'],
     ['bell','A spot just opened',
-      `${what}. Yours for the next 2 hours, then it passes to the next person waiting.`,'3m'],
+      `${what}. You were first on the waitlist, so you're in.`,'3m'],
     ['users','One more player and Saturday is on',
       'Three in, one short. Your group needs an answer before the organiser gives the court back.','12m'],
     ['cal','Moved to 9am, court 4',
@@ -3932,7 +4074,7 @@ function alertCarousel(){
     </div>
     <div class="npvback" aria-hidden="true"></div></div>
     <div class="npcdots" aria-hidden="true">${CARDS.map((_,n)=>`<i class="${n===0?'on':''}" data-npc="${n}"></i>`).join('')}</div>`;}
-const URGENT_LIST=`<div class="onb-perm alertlist"><div><span class="pi">${FI('cal')}</span><span><b>Called off or moved</b><span>Know before you leave the house.</span></span></div><div><span class="pi">${FI('users')}</span><span><b>A spot opens</b><span>It's yours first, for two hours.</span></span></div><div><span class="pi">${FI('clock')}</span><span><b>Game day</b><span>Courts and partners, two hours before.</span></span></div><div><span class="pi">${FI('lock')}</span><span><b>Nothing else</b><span>No marketing. Chat stays quiet unless you're @mentioned.</span></span></div></div>`;
+const URGENT_LIST=`<div class="onb-perm alertlist"><div><span class="pi">${FI('cal')}</span><span><b>Called off or moved</b><span>Know before you leave the house.</span></span></div><div><span class="pi">${FI('users')}</span><span><b>A spot opens</b><span>First on the waitlist? You're in automatically.</span></span></div><div><span class="pi">${FI('clock')}</span><span><b>Game day</b><span>Courts and partners, two hours before.</span></span></div><div><span class="pi">${FI('lock')}</span><span><b>Nothing else</b><span>No marketing. Chat stays quiet unless you're @mentioned.</span></span></div></div>`;
 /* One line for both places that ask, so sign-up and the game page never drift apart. */
 const NOTIF_LEAD=`Only what matters, the moment it happens.`;
 /* The last line before the button does two jobs: it takes the risk out of saying yes,
@@ -3991,12 +4133,13 @@ function reply(v){
   const g=current; if(!g||g.cancelled) return;
   if(isSched(g)&&!isHost(g)){toast(`Replies open ${sendText(g)}.`);return;}
   const before=g.mine;setTimeout(()=>{if(before!=='in'&&g.mine==='in')maybeCalPrompt(g);},0);
-  if(v==='leavewait'){removeMe(g);toast('You left the waitlist.');render();return;}
+  if(v==='leavewait'){removeMe(g);toast('You left the waitlist.','warn');render();return;}
+  if(v==='pay'){openPay(g,'join');return;}
   const prev=g.mine; const p=payOf(g);
   // One way out, one refund rule: In again, Out, or Maybe from In all go through leaveGame.
   if(prev==='in'&&v!=='in'||prev==='in'&&v==='in'){
     const paidNow=(p.paid||[]).includes('You')&&p.mode!=='venue';
-    const go=()=>{leaveGame(g,'in');if(v==='maybe'){g.maybe.push('You');g.mine='maybe';}render();};
+    const go=()=>{leaveGame(g,'in');if(v==='maybe'){g.maybe.push('You');g.mine='maybe';toast('Changed to maybe. Your spot is released.','warn');}else if(!paidNow)toast(g.wait.length?"You've dropped out. Your spot went to the next person waiting.":"You've dropped out. Thanks for letting everyone know.",'warn');render();};
     if(paidNow){dropConfirm(g,go);return;}
     go();return;
   }
@@ -4013,7 +4156,7 @@ function reply(v){
     else if(p.mode==='fixed'&&!reply.standbyOk){if(prev)reAdd(g,prev);openStandby(g);return;}
     else{reply.standbyOk=false;g.wait.push('You');g.mine='wait';toast(`You're number ${g.wait.length} on the waitlist. ${p.mode==='fixed'? "You're only charged if you get a spot." :p.mode!=='free'?'You only pay if you get a spot.':''}`);}
   } else if(v==='maybe'){g.maybe.push('You');g.mine='maybe';toast('Maybe. This does not hold a spot.');}
-  else {g.mine='out';toast('Out. Thanks for letting everyone know.');}
+  else {g.mine='out';toast('Out. Thanks for letting everyone know.','warn');}
   render();
 }
 function cancelGame(g,reason,note){
@@ -5886,7 +6029,7 @@ function openPay(g,mode){
       <div class="bankbox"><div><span>Amount</span><b>${money(p.amt)}</b></div><div><span>PayID</span><b>${org.toLowerCase()}.${g.group.toLowerCase().split(' ')[0]}@payid.example</b></div><div><span>Reference</span><b>CU${1000+g.id}</b></div></div>
       <button class="btn btn-primary btn-block" id="payGo">I've sent ${money(p.amt)}</button>
       <p class="hint">You show as Payment pending until ${org==='You'?'you confirm':org+' confirms'} it. If it is not confirmed within 24 hours, the spot goes to the next person.</p>`;
-    document.getElementById('payGo').onclick=e=>{const pb=e.currentTarget;busy(pb,'Holding your spot…',()=>{p.pending=[...(p.pending||[]),'You'];g.in.push('You');g.mine='in';btnDone(pb,'Spot held',()=>{closePay();render();toast(`Spot held. ${org} will confirm your transfer.`);});},700);};
+    document.getElementById('payGo').onclick=e=>{const pb=e.currentTarget;busy(pb,'Holding your spot…',()=>{p.pending=[...(p.pending||[]),'You'];if(!g.in.includes('You'))g.in.push('You');g.mine='in';btnDone(pb,'Spot held',()=>{closePay();render();toast(`Spot held. ${org} will confirm your transfer.`);});},700);};
     show2();return;}
   const total=dueOf(g)+FEE;
   t.textContent='Join and pay';
@@ -5896,29 +6039,38 @@ function openPay(g,mode){
       <button type="button" role="radio" data-pm="credit" aria-checked="${!pass&&creditFor(g)>=total}" ${creditFor(g)<=0?'disabled':''}><span class="pmic">$</span><span class="pmt"><b>Credit with ${esc(g.group)}</b><small>${money(creditFor(g))} available</small></span></button>
       <button type="button" role="radio" data-pm="apple" aria-checked="${!pass&&creditFor(g)<total}"><span class="pmic"><svg class="i sm" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/></svg></span><span class="pmt"><b>Apple Pay</b><small>Face ID</small></span></button>
       <button type="button" role="radio" data-pm="card" aria-checked="false"><span class="pmic"><svg class="i sm" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg></span><span class="pmt"><b>${wallet.card||'Debit or credit card'}</b><small>${wallet.card?'Saved card':'Add a new card'}</small></span></button>
+      <button type="button" role="radio" data-pm="payid" aria-checked="false"><span class="pmic"><svg class="i sm" viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M12 3 3 8h18Z"/><path d="M9 21v-7M15 21v-7"/></svg></span><span class="pmt"><b>PayID</b><small>Bank transfer to the organiser, no fees</small></span></button>
     </div>
     <div id="payCard" class="hidden">${cardFields(true)}</div>
+    <div id="payId" class="hidden">${(()=>{const org=(groups.find(x=>x.name===g.group)||{}).organiser||'Organiser';const pid=(org==='You'?'joseph':org.toLowerCase())+'.'+g.group.toLowerCase().split(' ')[0]+'@payid.example';
+      return `<div class="bankbox payidbox"><div><span>Amount</span><b>${money(dueOf(g))}</b></div><div class="bkrow"><span>PayID</span><b>${esc(pid)}</b><button type="button" class="copybtn" data-copy="${esc(pid)}">Copy</button></div><div class="bkrow"><span>Name</span><b>${esc(org==='You'?'Joseph Spanti':org)}</b></div><div class="bkrow"><span>Reference</span><b>CA${1000+g.id}</b><button type="button" class="copybtn" data-copy="CA${1000+g.id}">Copy</button></div></div>
+      <p class="hint" style="margin:8px 0 0">Pay in your bank app, then tap I've sent it. Your spot is held while ${org==='You'?'you confirm':esc(org)+' confirms'} the transfer.</p>`;})()}</div>
     <div class="paylines" id="payLines"></div>
     <button class="btn btn-primary btn-block" id="payGo"></button>
     <p class="hint">Can't make it? ${refText(g,true)}</p>`;
   let pm=(b.querySelector('[data-pm][aria-checked="true"]')||{}).dataset?.pm||'apple';
   const draw=()=>{const usePass=pm==='pass',useCredit=pm==='credit';const due=usePass?0:useCredit?Math.max(0,total-creditFor(g)):total;
-    const via=pm==='apple'?'Apple Pay':pm==='card'?(wallet.card||'New card'):'';
+    const via=pm==='apple'?'Apple Pay':pm==='card'?(wallet.card||'New card'):pm==='payid'?'PayID':'';
     document.getElementById('payCard').classList.toggle('hidden',!(pm==='card'&&!wallet.card));
+    document.getElementById('payId').classList.toggle('hidden',pm!=='payid');
     document.getElementById('payLines').innerHTML=usePass?`<div><span>Group pass</span><b>1 game</b></div><div><span>Passes left after</span><b>${pass.left-1} of ${pass.of}</b></div><div class="tot"><span>To pay</span><b>$0</b></div>`
       :`<div><span>${p.mode==='split'?'Your share':'Game'}</span><b>${money(dueOf(g))}</b></div>${useCredit?`<div><span>Credit</span><b>−${money(Math.min(creditFor(g),total))}</b></div>`:`<div><span>Paying with</span><b>${via}</b></div>`}<div class="tot"><span>Total</span><b>${money(due)}</b></div>`;
-    document.getElementById('payGo').textContent=usePass?'Use 1 pass and join':due===0?'Join with credit':`Pay ${money(due)} and join`;
+    document.getElementById('payGo').textContent=usePass?'Use 1 pass and join':due===0?'Join with credit':pm==='payid'?`I've sent ${money(due)}`:`Pay ${money(due)} and join`;
     return {due,usePass,useCredit};};
   b.querySelectorAll('[data-pm]').forEach(x=>x.onclick=()=>{pm=x.dataset.pm;b.querySelectorAll('[data-pm]').forEach(y=>y.setAttribute('aria-checked',y===x));draw();});
+  b.querySelectorAll('[data-copy]').forEach(x=>x.onclick=()=>{try{navigator.clipboard&&navigator.clipboard.writeText(x.dataset.copy);}catch(e){}x.textContent='Copied';haptic('tap');setTimeout(()=>{x.textContent='Copy';},1600);});
   draw();cardFormat(document.getElementById('payCard'));
   document.getElementById('payGo').onclick=e=>{const r=draw();
+    if(pm==='payid'){const org=(groups.find(x=>x.name===g.group)||{}).organiser||'the organiser';const pb=e.currentTarget;
+      busy(pb,'Holding your spot…',()=>{p.how='payid';p.pending=[...(p.pending||[]),'You'];if(!g.in.includes('You'))g.in.push('You');g.mine='in';
+        btnDone(pb,'Spot held',()=>{closePay();render();toast(org==='You'?'Spot held. Confirm the transfer in Payments.':`Spot held. ${org} will confirm your transfer.`);});},700);return;}
     if(pm==='card'&&!wallet.card){const c=cardRead(document.getElementById('payCard'));if(!c)return;if(c.save){wallet.card=c.label;wallet.exp=c.exp;}}
     busy(e.currentTarget,r.usePass?'Joining…':'Paying…',()=>{
     if(r.usePass)pass.left--; else if(r.useCredit)wallet.credits[g.group]=Math.max(0,creditFor(g)-total);
     wallet.history.unshift({t:g.title,a:-(r.usePass?0:total),d:'Today'});
     /* Remember how this spot was paid for, so dropping out gives back the same thing. */
     p.how=r.usePass?'pass':r.useCredit?'credit':'card';
-    p.paid=[...(p.paid||[]),'You']; g.in.push('You'); g.mine='in';
+    p.paid=[...(p.paid||[]),'You']; if(!g.in.includes('You'))g.in.push('You'); g.mine='in';
     btnDone(e.currentTarget||document.getElementById('payGo'),r.usePass?"You're in":'Paid',()=>{closePay(); render();
     toast(r.usePass?`You're going. ${pass.left} passes left.`:`Paid. You're going. Receipt sent to your email.`);});});};
   show2();
@@ -6932,7 +7084,7 @@ VIEWS.oneinv=function(){
 };
 /* Prototype view switch and pilot clean-up of demo alerts that point at sports or groups outside the pilot. */
 (function(){const seg=document.getElementById('modeSeg');if(seg){seg.querySelectorAll('[data-mode]').forEach(b=>{b.setAttribute('aria-pressed',(b.dataset.mode==='pilot')===PILOT);b.onclick=()=>{if((b.dataset.mode==='pilot')===PILOT)return;location.hash=b.dataset.mode==='full'?'full':'pilot';location.reload();};});
-  document.getElementById('modeHint').textContent=PILOT?'Pilot view: tennis only, private groups, no card payments. This is what the first organisers would use.':'Full vision: every sport, discovery, card payments and 1 on 1 games.';}
+  (document.getElementById('modeHint')||{}).textContent=PILOT?'Pilot view: tennis only, private groups, no card payments. This is what the first organisers would use.':'Full vision: every sport, discovery, card payments and 1 on 1 games.';}
   if(!PILOT)return;const gn=new Set(groups.map(g=>g.name).concat(invites.map(x=>x.group))),ids=new Set(games.map(g=>String(g.id)));
   document.querySelectorAll('#tab-notifications > .list > *').forEach(w=>{const r=w.matches('.row')?w:w.querySelector('.row');if(!r)return;const ctx=r.dataset.ctx||w.dataset.ctx,op=r.dataset.open;if((op&&!ids.has(op))||(ctx&&!gn.has(ctx)&&!/account/i.test(ctx)))w.remove();});
   const d=document.querySelector('[data-pane="h-disc"]');if(d)d.textContent='Discover';if(typeof applyNoteFilter==='function')applyNoteFilter();updateNBadge();})();
